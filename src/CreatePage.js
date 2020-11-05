@@ -54,3 +54,24 @@ fetchCategories = async () => {
     )
   }
 }
+
+//   render() {
+//     return (
+//       <>
+//       <Header/>
+//           <main>
+      
+//             <div>
+//                 <form id='add-form' className="column" onSubmit={this.handleSubmit}>
+//                       <label>id: <input type="test" id="id"  name="id" defaultValue="" onChange={this.handleChange}/></label>
+//                       <label>Name: <input type="test" id="name" name="name" defaultValue="" onChange={this.handleChange}/></label>
+//                       <label>Category: <input type="test" id="id" name="category" defaultValue="" onChange={this.handleChange}/></label>
+//                       <input type="submit" value="submit"/>
+//                 </form>
+//             </div>  
+//           </main>
+//         </>
+      
+//     )
+//   }
+// }
