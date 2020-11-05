@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ListPage from './ListPage.js';
+import CreatePage from './CreatePage.js';
 import {
     BrowserRouter as Router, 
     Route, 
@@ -14,9 +15,14 @@ export default class App extends Component {
                    <Router>
                         
                         <Route 
-                            path="/" 
+                            path="/lacroixs" 
                             exact
                             render={(routerProps) => <ListPage {...routerProps} />} 
+                        />
+                         <Route 
+                            path="/categories" 
+                            exact
+                            render={(routerProps) => <CreatePage {...routerProps} />} 
                         />
                     </Router>
             </div>
