@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ListPage from './ListPage.js';
 import CreatePage from './CreatePage.js';
+import HomePage from './HomePage.js';
 import {
     BrowserRouter as Router, 
     Route, 
@@ -13,6 +14,11 @@ export default class App extends Component {
             <div>
                 
                    <Router>
+                   <Route 
+                            path="/" 
+                            exact
+                            render={(routerProps) => <HomePage {...routerProps} />} 
+                        />
                         
                         <Route 
                             path="/lacroixs" 

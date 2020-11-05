@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+body {
   background-color: #5d81c9;
   min-height: 100vh;
   display: flex;
@@ -24,8 +24,25 @@
   color: white;
 }
 
-h1 {
-  font-size: small;
+
+
+.header {
+  background-color: #ffffff;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  height: .5in;
+  padding-top: 1%;
+}
+
+h3{
+  align-content: center;
+  text-align: center;
+}
+
+section {
+  margin-bottom: 70%;
+  padding-top: 40%
 }
 
 

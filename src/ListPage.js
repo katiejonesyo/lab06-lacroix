@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import fetch from 'superagent';
+import Header from './Header.js';
 
 const sleep = (time) => new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -27,10 +28,10 @@ fetchLacroixs = async () => {
   render() {
     return (
       <>
-      
+      <Header/>
       <main>
         <section>
-        </section>
+        
             {
               this.state.data.length === 0
               ? 'loading'
@@ -48,7 +49,7 @@ fetchLacroixs = async () => {
 
                   })
               }
-             
+             </section>
             </main>
         </>
       

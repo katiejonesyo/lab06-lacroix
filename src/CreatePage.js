@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import fetch from 'superagent';
+import Header from './Header.js';
 
 const sleep = (time) => new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -25,10 +26,12 @@ fetchCategories = async () => {
 }
 
   render() {
+    console.log(this.state.data)
     return (
       <>
-      
+      <Header/>
       <main>
+        
             {
               this.state.data.length === 0
               ? 'loading'
