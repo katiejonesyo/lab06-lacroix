@@ -40,9 +40,13 @@ fetchLacroixs = async () => {
                   return (
                     <h1>
                     id={lacroixs.id},
+                    <br/>
                     name={lacroixs.name},
+                    <br/>
                     cool_factor={lacroixs.cool_factor},
+                    <br/>
                     category={lacroixs.category},
+                    <br/>
                     crisp={lacroixs.crisp},
                     </h1>
                     )

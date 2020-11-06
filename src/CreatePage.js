@@ -25,8 +25,8 @@ fetchCategories = async () => {
       <>
       <Header/>
           <main>
-              <div>
-                Create Your Lacroix
+              <section>
+                <h4>Create Your Lacroix</h4>
                 <form>
                   <select>
                     <option value='lacroix'>Lacroix</option>
@@ -34,7 +34,7 @@ fetchCategories = async () => {
                   <button> Create </button>
                 </form>
 
-              </div>
+                </section>
           </main>
         </>
       
