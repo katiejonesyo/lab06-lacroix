@@ -12,6 +12,8 @@ export default class Header extends Component {
                 <Link className="link" to="/lacroixs">List Page</Link>
                 
                 <Link className="link" to="/categories">Create Page</Link>
+
+                <Link className="link" to="/details">Detail Page</Link>
                 
         
             </div>

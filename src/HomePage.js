@@ -14,7 +14,7 @@ export default class PokeHome extends Component {
                <p></p>
                 </h3>
                 <img src="https://media.giphy.com/media/ulmF6LOjYmV82QOgBS/giphy.gif" alt="lacroix"/>
-                <body> </body>
+                
             </div>
             </main>
         )}
