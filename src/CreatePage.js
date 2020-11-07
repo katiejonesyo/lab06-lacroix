@@ -75,7 +75,16 @@ handleChange = (e) => {
                     Cool Factor: 
                     <input onChange={e => this.setState({ cool_factor: e.target.value})} type="number" />
                   </label>
+
                   </p>
+                  <p>
+                  <label>
+                            Is it crisp?
+                            <input 
+                            checked={this.state.category} 
+                            onChange={e => this.setState({category: e.target.checked})} type="checkbox" name="booger" />
+                    </label>
+                    </p>
                   {/* <label>
                     Select Category:
                     <select onChange={this.handleChange}>
@@ -87,13 +96,7 @@ handleChange = (e) => {
                       }
                     </select>
                   </label> */}
-               <label>
-                 Is it Crissssssp?
-                  <select>
-                    <option value='Yes'>Yes</option>
-                    <option value='No'>No</option>
-                  </select>
-                  </label>
+    
                   <button> Submit </button>
                   
                 </form>
