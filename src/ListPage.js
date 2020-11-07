@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import fetch from 'superagent';
 import Header from './Header.js';
-
-const sleep = (time) => new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve()
-    }, time)
-});
+import { getAllLacroixs } from './Utils.js'
+import Render from './Render.js';
 
 export default class App extends Component {
   state = {
     data: []
   }
   componentDidMount = async () => {
-    await this.fetchLacroixs();
+    const data = await getAllLacroixs();
+
+    this.setState({data});
 
   }
 
-fetchLacroixs = async () => {
-  const response = await fetch.get(`https://cheese-man.herokuapp.com/lacroixs`);
-  
-  await sleep(2000)
-  this.setState({ data: response.body});
-}
+
 
   render() {
     return (
@@ -31,28 +23,25 @@ fetchLacroixs = async () => {
       <Header/>
       <main>
         <section>
-        
+        <div className="listpage">
             {
               this.state.data.length === 0
               ? 'loading'
 
               : this.state.data.map((lacroixs) => {
                   return (
-                    <h1>
-                    id={lacroixs.id},
-                    <br/>
-                    name={lacroixs.name},
-                    <br/>
-                    cool_factor={lacroixs.cool_factor},
-                    <br/>
-                    category={lacroixs.category},
-                    <br/>
-                    crisp={lacroixs.crisp},
-                    </h1>
+                    <Render
+                    lacroixs-name={lacroixs.lacroixs_name}
+                    cool-factor={lacroixs.cool_factor}
+                    lacroixs-category={lacroixs.lacroixs_category}
+                    lacroixs-crisp={lacroixs.lacroixs_crisp}
+                    owner-id={lacroixs.owner_id} />
+
                     )
 
                   })
               }
+              </div>
              </section>
             </main>
         </>
