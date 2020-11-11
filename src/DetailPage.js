@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Header.js';
-import {getAllLacroixs, getSingleLacroix, createLacroix, updateLacroix, deleteLacroix, getAllCategories} from './Utils.js';
+import {getAllLacroixs, updateLacroix, deleteLacroix, getAllCategories} from './Utils.js';
 
-const theOnlyUser = {
-    userId: 1
-};
 
 export default class DetailPage extends Component {
         state = {

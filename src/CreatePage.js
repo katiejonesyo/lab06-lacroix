@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import fetch from 'superagent';
 import Header from './Header.js';
 import { createLacroix, getAllCategories } from './Utils';
 import request from 'superagent';
 
-
-const theOnlyUser = {
-    userId: 1
-}
 
 
 export default class App extends Component {
