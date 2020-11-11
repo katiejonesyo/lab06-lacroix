@@ -85,17 +85,6 @@ handleChange = (e) => {
                             onChange={e => this.setState({category: e.target.checked})} type="checkbox" name="booger" />
                     </label>
                     </p>
-                  {/* <label>
-                    Select Category:
-                    <select onChange={this.handleChange}>
-                      {
-                        this.state.categories.map(category =>
-                          <option key={category.id} value={category.id}>
-                            {category.name}
-                          </option>)
-                      }
-                    </select>
-                  </label> */}
     
                   <button> Submit </button>
                   

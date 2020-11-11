@@ -78,20 +78,6 @@ handleDelete = async (e) => {
                             checked={this.state.category} 
                             onChange={e => this.setState({category: e.target.checked})} type="checkbox" name="booger" />
                         </label>
-                        {/* <label>
-                            Select Category
-                            <select onChange={e => this.setState({ genreId: e.target.value})}>
-                                {
-                                this.state.categories.map(category => 
-                                <option 
-                                selected={this.state.matchCategory.id === category.id} 
-                                key={category.id} 
-                                value={category.id}>
-                                    {category.name}
-                                </option>)
-                                }
-                            </select>
-                        </label> */}
                         <button>Update</button>
                         <button onClick={this.handleDelete} className="delete-button">Delete Artist</button>
                         

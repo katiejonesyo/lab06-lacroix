@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Header.js';
-import { getAllLacroixs } from './Utils.js'
-import Render from './Render.js';
+import request from 'superagent';
+
 
 export default class App extends Component {
   state = {
-    data: []
+    data: [],
+    loading: true
   }
   componentDidMount = async () => {
-    const data = await getAllLacroixs();
+    const response = await request.get(`https://cheese-man.herokuapp.com/lacroixs`);
 
-    this.setState({data});
+    this.setState({ data: response.body, loading: false });
 
   }
 
@@ -19,6 +20,7 @@ export default class App extends Component {
 
   render() {
     return (
+      
       <>
       <Header/>
       <main>
@@ -28,18 +30,18 @@ export default class App extends Component {
               this.state.data.length === 0
               ? 'loading'
 
-              : this.state.data.map((lacroixs) => {
-                  return (
-                    <Render
-                    lacroixs-name={lacroixs.lacroixs_name}
-                    cool-factor={lacroixs.cool_factor}
-                    lacroixs-category={lacroixs.lacroixs_category}
-                    lacroixs-crisp={lacroixs.lacroixs_crisp}
-                    owner-id={lacroixs.owner_id} />
+              : this.state.data.map(lacroixs => 
 
-                    )
+                <div key={lacroixs.lacroixs} className='fetched-details-div'>
+                  <p>
+                    <p>Name: {lacroixs.name}</p>
+                    <p>Cool Factor: {lacroixs.cool_factor}</p>
+                    <p>Category {lacroixs.category}</p>
+                    
+                  </p>
+                </div>
 
-                  })
+                )
               }
               </div>
              </section>
