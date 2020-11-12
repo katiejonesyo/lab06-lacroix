@@ -76,7 +76,7 @@ handleDelete = async (e) => {
                             onChange={e => this.setState({category: e.target.checked})} type="checkbox" name="booger" />
                         </label>
                         <button>Update</button>
-                        <button onClick={this.handleDelete} className="delete-button">Delete Artist</button>
+                        <button onClick={this.handleDelete} className="delete-button">Delete Drink</button>
                         
                     </form>
             </div>

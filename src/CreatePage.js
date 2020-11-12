@@ -21,11 +21,12 @@ handleSubmit = async (e) => {
   e.preventDefault();
 
   await createLacroix({
-    lacroixs_id: this.state.lacroixs.id,
-    lacroixs_name: this.state.lacroixsName,
+    id: this.state.lacroixsId,
+    name: this.state.lacroixsName,
     cool_factor: this.state.coolFactor,
-    lacroixs_category: this.state.lacroixsCategory,
-    owner_id: this.state.ownerId
+    category: 1,
+    owner_id: 1,
+    crisp: true
   })
 
   this.props.history.push('/');
@@ -68,7 +69,7 @@ handleChange = (e) => {
                   <p>
                   <label>
                     Cool Factor: 
-                    <input onChange={e => this.setState({ cool_factor: e.target.value})} type="number" />
+                    <input onChange={e => this.setState({ coolFactor: e.target.value})} type="number" />
                   </label>
 
                   </p>
@@ -84,20 +85,8 @@ handleChange = (e) => {
                   <button> Submit </button>
                   
                 </form>
-                <br/>
-                <br/>
-                <br/>
-                    <div>
-                      <h2 className="form-header"> Add a Category Name</h2>
-                      <form onSubmit={this.handleSubmitCategories} className="the-form">
-                       <p> <label>
-                          Category Type:
-                          <input onChange={e => this.setState({ categoriesName: e.target.value})} type="text" value={this.state.categoriesName} />
-                        </label>
-                        <button>Submit</button>
-                        </p>
-                      </form>
-                    </div>
+               
+               
                 </section>
           </main>
         </>
