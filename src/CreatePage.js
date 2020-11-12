@@ -29,7 +29,7 @@ handleSubmit = async (e) => {
     crisp: true
   })
 
-  this.props.history.push('/');
+  this.props.history.push('/lacroixs');
 }
 
 handleSubmitCategories = async (e) => {

@@ -2,34 +2,34 @@ import React, { Component } from 'react'
 import Header from './Header.js';
 import {getAllLacroixs, updateLacroix, deleteLacroix, getAllCategories} from './Utils.js';
 
+const userFromLocalStorage = { userId: 1}
+
 
 export default class DetailPage extends Component {
         state = {
             categories:[],
-            lacroixData:{},
-            matchCategory:
-            {name: '',
-        category_id: 1 },
-        lacroixName: '',
-        cool_factor: 0,
-        crisp: true
+            name: '',
+            cool_factor: 0,
+            categoryId: 1,
+            crisp: true
 
         }
 
         componentDidMount = async () => {
             const categories = await getAllCategories();
             const lacroix = await getAllLacroixs(this.props.match.params.id);
+            const lacroixNameAsString = lacroix.category;
 
             const matchCategory = categories.find((category) => {
-                return category.id === lacroix.category_id
+                return category.name === lacroixNameAsString
             })
 
             this.setState({
-                lacroixData: lacroix,
                 categories: categories,
-                matchCategory:matchCategory,
-                lacroixName: lacroix.name,
-                lacroixCategory:lacroix.category
+                name: lacroix.name,
+                categoryId: matchCategory.id,
+                coolFactor: lacroix.cool_factor,
+                crisp: lacroix.crisp
             })
         }
 
@@ -39,18 +39,23 @@ handleSubmit = async (e) => {
     await updateLacroix(
         this.props.match.params.id,
         {
-            lacroixs_id: this.state.lacroixs.id,
-            lacroixs_name: this.state.lacroixsName,
+    
+            name: this.state.name,
             cool_factor: this.state.coolFactor,
-            lacroixs_category: this.state.lacroixsCategory,
-            owner_id: this.state.ownerId
+            categoryId: 1,
+            owner_id: userFromLocalStorage.userId,
+            crisp: this.state.crisp
         })
-        this.props.history.push('/');
+        this.props.history.push('/lacroixs');
+}
+
+handleChange = (e) => {
+    this.setState({ categoryId: e.target.value });
 }
 
 handleDelete = async (e) => {
     await deleteLacroix(this.props.match.params.id);
-    this.props.history.push('/');
+    this.props.history.push('/lacroixs');
 }
 
 
@@ -58,7 +63,7 @@ handleDelete = async (e) => {
         return (
             <main>
                 <Header/>
-                <div>
+                <center><div>
                 <h2 className="form-header">Update a Lacroix</h2>
                     <form onSubmit={this.handleSubmit} className="the-form">
                         <label>
@@ -69,17 +74,38 @@ handleDelete = async (e) => {
                             Cool Factor:
                             <input value={this.state.cool_factor} onChange={e => this.setState({ cool_factor: e.target.value})} type="number" />
                         </label>
+                        <br/>
                         <label>
                             Is it crisp?
                             <input 
                             checked={this.state.category} 
                             onChange={e => this.setState({category: e.target.checked})} type="checkbox" name="booger" />
                         </label>
+                        <br/>
+                        <label>
+                            Category:
+                                         <select onChange={this.handleChange}>
+                            {
+                                this.state.categories.map(category => <option
+                                selected={this.state.categoryId === category.id}
+                                key={category.id}
+                                value={category.id}
+                                >
+                                    {category.name}
+                                </option>)
+                            }
+                        </select>
+                            <br/>
+                        </label>
+                        <p>
                         <button>Update</button>
                         <button onClick={this.handleDelete} className="delete-button">Delete Drink</button>
+                        </p>
+                        
+                     
                         
                     </form>
-            </div>
+            </div></center>
             </main>
         )
     }
